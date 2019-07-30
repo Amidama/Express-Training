@@ -1,16 +1,18 @@
 const express = require('express');
 const app = express();
 const data = require('./data.json');
+const controller = require('./Controller.js');
 
-app.get('/', (req, res) => {
-  res.send('Hello World');
-})
+const bodyParser = require('body-parser')
 
-app.get('/books/:id',(req, res) => {
-  // if book.id === req.params.id 
-  // return book
-  res.json(data.find(book => book.id === req.params.id))
-})
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
+
+app.get('/', (req, res) => controller.getMethodHello(req, res));
+app.get('/books/:id', (req, res) => controller.getMethod(req, res));
+app.post('/books', (req, res) => controller.postMethod(req, res));
+app.put('/books/:id', (req, res) => controller.putMethod(req, res))
+app.delete('/books/:id', (req, res) => controller.deleteMethod(req, res));
 
 
 app.listen(3000, () => {
