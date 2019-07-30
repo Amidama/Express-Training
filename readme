@@ -1,0 +1,5 @@
+npm init -y (init project)
+create index.js
+
+npm install express --save (--save = update express in package.json)
+npm install (install everything in package.json)
