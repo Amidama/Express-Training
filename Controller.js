@@ -36,10 +36,3 @@ module.exports = { getMethodHello, getMethod, postMethod, putMethod, deleteMetho
 // exports.getMethod = (req, res) => {
 //     res.json(data.find(book => book.id === req.params.id))
 // }
-
-let ob = {
-    name: 'oat',
-    func: () => { 
-
-    }
-}
