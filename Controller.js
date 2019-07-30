@@ -1,7 +1,15 @@
 const data = require('./data.json');
 
 const getMethodHello = (req, res) => {
-    res.send('Hello World');
+    try {
+        const x = book;
+        res.send('Hello World');
+    } catch(error) {
+        console.log(JSON.stringify(error.message));
+        res.status(400).json({
+            err: JSON.stringify(error.message)
+        })
+    } 
 }
 
 const getMethod = (req, res) => {
